@@ -1,10 +1,15 @@
-let sourceDestination = "input/borders"
-let fileList = []
+// "Config"
+var inputNumber = 96 // The amount of images you will process
+var trimAmount = 10 // Amount of pixels you want trimmed from EACH SIDE
+var sourceDestination = "input/borders" // Input folder, must be subdirectory
+
+// Don't touch
+var fileList = []
 var images = []
 
 function preload() {
   // Load the list of files from the folder
-  for (let i = 0; i < 96; i++) {
+  for (let i = 0; i < inputNumber; i++) { //
     fileList[i] = `image${i+1}.png`
   }
 
@@ -19,10 +24,10 @@ function preload() {
 }
 
 function draw() {
-  let currentImage = frameCount - 1
-  if (currentImage < images.length) {
-    createCanvas(images[currentImage].width - 20, images[currentImage].height - 20);
-    image(images[currentImage], -10, -10);
-    saveCanvas('images/borderless/borderless' + [currentImage + 1], 'jpg');
+  let currentImage = frameCount - 1 // Starts at 0, increases every frame
+  if (currentImage < images.length) { // Processes your images
+    createCanvas(images[currentImage].width - trimAmount * 2, images[currentImage].height - trimAmount * 2); // Sets canvas to the image's size - the trim amount x2
+    image(images[currentImage], -trimAmount, -trimAmount);
+    saveCanvas('images/borderless/borderless' + [currentImage + 1], 'jpg'); // Saves your image as a .jpg
   }
 }
