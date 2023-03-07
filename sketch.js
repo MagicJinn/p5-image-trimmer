@@ -1,9 +1,7 @@
 // "Config"
 var inputNumber = 96 // The amount of images you will process
 var trimAmount = 10 // Amount of pixels you want trimmed from EACH SIDE
-var sourceDestination = "input/borders" // Input folder, must be subdirectory
-var inputNumber = 5 // The amount of images you will process
-var trimAmount = 70 // Amount of pixels you want trimmed from EACH SIDE
+var sourceDestination = "input/" // Input folder, must be subdirectory
 
 // Don't touch
 var fileList = []
